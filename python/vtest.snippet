@@ -1,0 +1,7 @@
+class ${1:ViewName}Test(TestCase):
+	def _do_${2:post}(self, **kwargs):
+		defaults = {
+			${3}
+		}
+		defaults.update(kwargs)
+		return self.client.$2(reverse('${4:url}'), defaults)

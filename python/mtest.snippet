@@ -1,0 +1,20 @@
+class ${1:Model}Test(TestCase):
+	def _build(self, **kwargs):
+		defaults = {
+			${2}
+		}
+		defaults.update(kwargs)
+		return $1(**defaults)
+
+	def _create(self, **kwargs):
+		obj = self._build(**kwargs)
+		obj.save()
+		return obj
+
+	def test_should_be_valid(self):
+		self._build().full_clean()
+		self.assertTrue(True)
+
+	def test_should_save(self):
+		self._build().save()
+		self.assertTrue(True)
